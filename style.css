@@ -1,0 +1,135 @@
+/* 基本スタイル（全体的な行間やフォント） */
+body {
+    /* 既存のスタイルはそのままに */
+    line-height: 1.6; /* 行間を少し広げる */
+    font-size: 16px; /* 基本フォントサイズを調整 */
+    color: #333; /* 文字色を少し濃いグレーにして可読性アップ */
+}
+
+/* ヘッダーの調整 */
+header {
+    padding: 30px 0; /* 上下のパディングを調整 */
+    background-color: #f4f4f4; /* 背景色を追加してセクション感を出す */
+    border-bottom: 1px solid #ddd; /* 下線で区切り */
+    margin-bottom: 40px; /* メインコンテンツとの間に余白 */
+}
+
+header h1 {
+    font-size: 3em; /* タイトルを大きく */
+    color: #2c3e50; /* 濃いめの色に */
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* メインセクションの共通スタイル */
+main section {
+    max-width: 900px; /* 全体の最大幅を設定 */
+    margin: 40px auto; /* 上下左右中央に余白 */
+    padding: 30px; /* 各セクションの内側余白 */
+    background-color: #fff; /* 白い背景で見やすく */
+    border-radius: 8px; /* 角を丸く */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影で立体感を出す */
+    line-height: 1.8; /* 各セクション内の行間も調整 */
+}
+
+main section h2 {
+    font-size: 2.2em;
+    color: #2980b9; /* セクション見出しの色 */
+    margin-bottom: 25px;
+    border-bottom: 2px solid #2980b9; /* 下線で強調 */
+    padding-bottom: 10px;
+    text-align: left; /* 左寄せに */
+}
+
+main section h3 {
+    font-size: 1.6em;
+    color: #34495e; /* 小見出しの色 */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left; /* 左寄せに */
+}
+
+main section h4 { /* 動作イメージのh4も調整 */
+    font-size: 1.4em;
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+main section p {
+    margin-bottom: 20px;
+    text-align: left; /* 段落を左寄せに */
+}
+
+/* リストアイテム (ul, li) の調整 */
+main section ul {
+    list-style: none; /* デフォルトの点を消す */
+    padding-left: 0; /* デフォルトのインデントを消す */
+    text-align: left; /* 左寄せに */
+}
+
+main section ul li {
+    margin-bottom: 15px; /* 各リスト項目間の余白 */
+    padding-left: 25px; /* アイコン分のインデント */
+    position: relative; /* アイコン配置のために必要 */
+}
+
+main section ul li::before {
+    content: '•'; /* 任意のアイコン（ここでは黒丸） */
+    color: #2980b9; /* アイコンの色 */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em; /* アイコンの幅 */
+    margin-left: -1em; /* インデント調整 */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+main section ul li strong {
+    color: #007bff; /* スキル名など太字部分の色 */
+}
+
+/* スキル詳細の改行調整（<br>タグで改行しているため） */
+#skills ul li br {
+    margin-bottom: 0.5em; /* 改行ごとの余白 */
+}
+
+/* フッターの調整 */
+footer {
+    padding: 30px 0;
+    background-color: #34495e; /* 暗めの背景色 */
+    color: #ecf0f1; /* 明るい文字色 */
+    margin-top: 50px; /* メインコンテンツとの余白 */
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+    text-align: center; /* 中央寄せ */
+}
+
+
+/* ★以下は、前回の修正で追加済みのはずですが、念のため含めておきます */
+/* 動作イメージのスクリーンショットコンテナ */
+.screenshots {
+    display: flex; /* Flexboxを適用して並べる */
+    flex-wrap: wrap; /* 画面幅が狭い場合に折り返す */
+    justify-content: center; /* 画像を中央に配置 */
+    gap: 20px; /* 画像間の隙間を20pxに設定。ここを調整してください */
+    margin-top: 20px; /* 必要であれば、セクション上部との余白 */
+}
+
+/* スクリーンショット画像自体のスタイル（必要であれば） */
+.screenshots img {
+    max-width: 100%; /* 親要素からはみ出さないように */
+    height: auto; /* アスペクト比を維持 */
+    border: 1px solid #ddd; /* 必要であれば境界線 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 必要であれば影 */
+    border-radius: 5px; /* 角を丸くする */
+}
