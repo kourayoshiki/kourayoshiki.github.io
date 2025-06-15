@@ -4,6 +4,13 @@ body {
     line-height: 1.6; /* 行間を少し広げる */
     font-size: 16px; /* 基本フォントサイズを調整 */
     color: #333; /* 文字色を少し濃いグレーにして可読性アップ */
+    
+    /* ★追加: 全体の背景設定を確実にリセットし、特定の背景画像が表示されないようにする */
+    background-image: none !important; /* 背景画像を確実に表示しない */
+    background-color: #f4f4f4 !important; /* 背景色を薄いグレーに設定 */
+    background-size: auto !important; /* 背景サイズをリセット */
+    background-repeat: repeat !important; /* 背景の繰り返しをリセット */
+    background-position: initial !important; /* 背景の位置をリセット */
 }
 
 /* ヘッダーの調整 */
@@ -12,6 +19,7 @@ header {
     background-color: #f4f4f4; /* 背景色を追加してセクション感を出す */
     border-bottom: 1px solid #ddd; /* 下線で区切り */
     margin-bottom: 40px; /* メインコンテンツとの間に余白 */
+    text-align: center; /* ヘッダー内の要素を中央寄せにする */
 }
 
 header h1 {
@@ -25,6 +33,32 @@ header p {
     color: #555;
 }
 
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+nav ul li {
+    display: inline-block; /* 横並びにする */
+    margin: 0 15px; /* 各リンクの左右の余白 */
+}
+
+nav ul li a {
+    text-decoration: none; /* 下線を消す */
+    color: #2980b9; /* リンクの色 */
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+nav ul li a:hover {
+    background-color: #e0f2f7; /* ホバー時の背景色 */
+}
+
+
 /* メインセクションの共通スタイル */
 main section {
     max-width: 900px; /* 全体の最大幅を設定 */
@@ -34,6 +68,7 @@ main section {
     border-radius: 8px; /* 角を丸く */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影で立体感を出す */
     line-height: 1.8; /* 各セクション内の行間も調整 */
+    text-align: center; /* セクション内のテキストを中央寄せにする（必要であれば調整） */
 }
 
 main section h2 {
@@ -107,6 +142,7 @@ footer {
     color: #ecf0f1; /* 明るい文字色 */
     margin-top: 50px; /* メインコンテンツとの余白 */
     font-size: 0.9em;
+    text-align: center; /* 中央寄せ */
 }
 
 footer p {
@@ -114,8 +150,6 @@ footer p {
     text-align: center; /* 中央寄せ */
 }
 
-
-/* ★以下は、前回の修正で追加済みのはずですが、念のため含めておきます */
 /* 動作イメージのスクリーンショットコンテナ */
 .screenshots {
     display: flex; /* Flexboxを適用して並べる */
@@ -132,4 +166,38 @@ footer p {
     border: 1px solid #ddd; /* 必要であれば境界線 */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 必要であれば影 */
     border-radius: 5px; /* 角を丸くする */
+
+    /* ★追加: 各スクリーンショット画像の最大幅を制限して、横並びになりやすくする */
+    flex: 1 1 calc(50% - 20px); /* 2列表示を試みる。gap分を引く */
+    min-width: 280px; /* 小さすぎる画像を防ぐ */
+}
+
+/* ★追加: レスポンシブ対応 (スマートフォンの場合) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+    header p {
+        font-size: 1.1em;
+    }
+    nav ul li {
+        display: block; /* 縦並びにする */
+        margin: 10px 0;
+    }
+    main section {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    main section h2 {
+        font-size: 1.8em;
+    }
+    main section h3 {
+        font-size: 1.4em;
+    }
+    main section h4 {
+        font-size: 1.2em;
+    }
+    .screenshots img {
+        flex: 1 1 100%; /* スマホでは1列表示にする */
+    }
 }
