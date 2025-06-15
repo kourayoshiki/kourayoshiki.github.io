@@ -4,7 +4,7 @@ body {
     line-height: 1.6; /* 行間を少し広げる */
     font-size: 16px; /* 基本フォントサイズを調整 */
     color: #333; /* 文字色を少し濃いグレーにして可読性アップ */
-    
+
     /* ★追加: 全体の背景設定を確実にリセットし、特定の背景画像が表示されないようにする */
     background-image: none !important; /* 背景画像を確実に表示しない */
     background-color: #f4f4f4 !important; /* 背景色を薄いグレーに設定 */
@@ -152,27 +152,25 @@ footer p {
 
 /* 動作イメージのスクリーンショットコンテナ */
 .screenshots {
-    display: flex; /* Flexboxを適用して並べる */
-    flex-wrap: wrap; /* 画面幅が狭い場合に折り返す */
-    justify-content: center; /* 画像を中央に配置 */
-    gap: 20px; /* 画像間の隙間を20pxに設定。ここを調整してください */
-    margin-top: 20px; /* 必要であれば、セクション上部との余白 */
+    display: flex; /* Flexboxを適用 */
+    flex-direction: column; /* ★修正: アイテムを縦方向に並べる */
+    align-items: center; /* ★追加: 縦並びのアイテムを中央に配置する */
+    gap: 30px; /* ★修正: 画像間の隙間を30pxにする */
+    margin-top: 30px; /* ★修正: セクション上部との余白 */
 }
 
-/* スクリーンショット画像自体のスタイル（必要であれば） */
+/* スクリーンショット画像自体のスタイル */
 .screenshots img {
-    max-width: 100%; /* 親要素からはみ出さないように */
+    width: 80%; /* ★修正: 画像の幅を親要素の80%にする（大きく表示するため） */
+    max-width: 700px; /* ★追加: PC画面で大きくなりすぎないように最大幅を設定 */
     height: auto; /* アスペクト比を維持 */
-    border: 1px solid #ddd; /* 必要であれば境界線 */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 必要であれば影 */
-    border-radius: 5px; /* 角を丸くする */
-
-    /* ★追加: 各スクリーンショット画像の最大幅を制限して、横並びになりやすくする */
-    flex: 1 1 calc(50% - 20px); /* 2列表示を試みる。gap分を引く */
-    min-width: 280px; /* 小さすぎる画像を防ぐ */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ★修正: 影を少し強めて立体感を出す */
+    border-radius: 8px;
+    object-fit: contain; /* ★追加: 画像がコンテナに収まるように調整 */
 }
 
-/* ★追加: レスポンシブ対応 (スマートフォンの場合) */
+/* レスポンシブ対応 (スマートフォンの場合) */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2.5em;
@@ -197,7 +195,13 @@ footer p {
     main section h4 {
         font-size: 1.2em;
     }
+    .screenshots {
+        /* スマホでも既にflex-direction: column; になっているので変更なし */
+        gap: 20px; /* 縦並び時の隙間 */
+    }
     .screenshots img {
-        flex: 1 1 100%; /* スマホでは1列表示にする */
+        width: 95%; /* ★修正: スマホでは画面幅の95%に設定 */
+        max-width: none; /* ★修正: スマホでは最大幅の制限をなくす（画面いっぱいに表示するため） */
+        height: auto;
     }
 }
